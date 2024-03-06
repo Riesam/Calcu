@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Calculator</title>
+    </head>
+    <body>
+        <header>
+            <h1 style="color: white;">CALCULATOR</h1>
+        </header>
+
+
+        <input readonly id="display">
+
+        <table>
+            <tr>
+                <td><button onclick="toDisplay('7')">7</button></td>
+                <td><button onclick="toDisplay('8')">8</button></td>
+                <td><button onclick="toDisplay('9')">9</button></td>
+                <td><button onclick="toClear()">C</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="toDisplay('4')">4</button></td>
+                <td><button onclick="toDisplay('5')">5</button></td>
+                <td><button onclick="toDisplay('6')">6</button></td>
+                <td><button onclick="toAdd()">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="toDisplay('1')">1</button></td>
+                <td><button onclick="toDisplay('2')">2</button></td>
+                <td><button onclick="toDisplay('3')">3</button></td>
+                <td><button onclick="toMinus()">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="toDisplay('0')">0</button></td>
+                <td><button onclick="toDecimal('.')" id="deci">.</button></td>
+                <td><button onclick="toDivide('/')">/</button></td>
+                <td><button onclick="toMultiply()">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="toCalculate()">=</button></td>
+            </tr>
+        </table>
+
+
+        <script>
+            /*
+            fNum = ;
+            sNum = ;
+            */
+
+            const display = document.getElementById("display");
+
+
+            function toDisplay(input) {
+                display.value += input;
+            }
+
+            function toClear() {
+                display.value = "";
+            }
+
+            function toAdd(input) {
+                document.getElementById("deci").disabled = false;
+                display.value += input + display.value;
+                let display2 = display;
+            }
+
+            function toMinus() {
+                document.getElementById("deci").disabled = false;
+            }
+
+            function toMultiply() {
+                document.getElementById("deci").disabled = false;
+                let display2 = display;
+            }
+
+            function toDivide() {
+                document.getElementById("deci").disabled = false;
+                let display2 = display;
+            }
+
+            function toDecimal(input) {
+                display.value += input;
+                document.getElementById("deci").disabled = true;
+            }
+
+            function toCalculate() {
+                
+            }
+
+
+
+        </script>
+    </body>
+</html>
