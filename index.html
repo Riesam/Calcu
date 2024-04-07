@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Calculator</title>
+    </head>
+    <body>
+        <header>
+            <h1 style="color: white;">CALCULATOR</h1>
+        </header>
+
+
+        <input readonly id="display">
+
+        <table>
+            <tr>
+                <td><button onclick="toDisplay('7')">7</button></td>
+                <td><button onclick="toDisplay('8')">8</button></td>
+                <td><button onclick="toDisplay('9')">9</button></td>
+                <td><button onclick="toClear()">C</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="toDisplay('4')">4</button></td>
+                <td><button onclick="toDisplay('5')">5</button></td>
+                <td><button onclick="toDisplay('6')">6</button></td>
+                <td><button onclick="toAdd('+')" id="ad">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="toDisplay('1')">1</button></td>
+                <td><button onclick="toDisplay('2')">2</button></td>
+                <td><button onclick="toDisplay('3')">3</button></td>
+                <td><button onclick="toMinus('-')" id="min"> - </button></td>
+            </tr>
+            <tr>
+                <td><button onclick="toDisplay('0')">0</button></td>
+                <td><button onclick="toDecimal('.')" id="deci"> . </button></td>
+                <td><button onclick="toDivide('/')" id="divd"> / </button></td>
+                <td><button onclick="toMultiply('*')" id="mult"> * </button></td>
+            </tr>
+            <tr>
+                <td><button onclick="toCalculate()">=</button></td>
+                <td><button onclick="toDecr()">CE</button></td>
+            </tr>
+        </table>
+
+
+        <script>
+
+            /*
+            fNum = ;
+            sNum = ;
+            */
+
+            const display = document.getElementById("display");
+
+
+            function toDisplay(input) {
+                document.getElementById("ad").disabled = false;
+                document.getElementById("min").disabled = false;
+                document.getElementById("divd").disabled = false;
+                document.getElementById("mult").disabled = false;
+                display.value += input;
+            }
+
+            function toClear() {
+                document.getElementById("ad").disabled = false;
+                document.getElementById("min").disabled = false;
+                document.getElementById("divd").disabled = false;
+                document.getElementById("mult").disabled = false;
+                display.value = "";
+            }
+
+            function toDecr() {
+                document.getElementById("ad").disabled = false;
+                document.getElementById("min").disabled = false;
+                document.getElementById("divd").disabled = false;
+                document.getElementById("mult").disabled = false;
+                display.value = display.value.toString().slice(0, -1);
+            }
+
+            function toAdd(input) {
+                document.getElementById("deci").disabled = false;
+                document.getElementById("ad").disabled = true;
+                document.getElementById("min").disabled = false;
+                document.getElementById("divd").disabled = false;
+                document.getElementById("mult").disabled = false;
+                display.value += input;
+            }
+
+            function toMinus(input) {
+                document.getElementById("deci").disabled = false;
+                document.getElementById("ad").disabled = false;
+                document.getElementById("min").disabled = true;
+                document.getElementById("divd").disabled = false;
+                document.getElementById("mult").disabled = false;
+                display.value += input;
+            }
+
+            function toMultiply(input) {
+                document.getElementById("deci").disabled = false;
+                document.getElementById("ad").disabled = false;
+                document.getElementById("min").disabled = false;
+                document.getElementById("divd").disabled = false;
+                document.getElementById("mult").disabled = true;
+                display.value += input;
+            }
+
+            function toDivide(input) {
+                document.getElementById("deci").disabled = false;
+                document.getElementById("ad").disabled = false;
+                document.getElementById("min").disabled = false;
+                document.getElementById("divd").disabled = true;
+                document.getElementById("mult").disabled = false;
+                display.value += input;
+            }
+
+            function toDecimal(input) {
+                document.getElementById("deci").disabled = true;
+                document.getElementById("ad").disabled = false;
+                document.getElementById("min").disabled = false;
+                document.getElementById("divd").disabled = false;
+                document.getElementById("mult").disabled = false;
+                display.value += input;
+            }
+
+            function toCalculate() {
+                display.value = eval(display.value);
+            }
+
+        </script>
+    </body>
+</html>
